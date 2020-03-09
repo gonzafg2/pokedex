@@ -32,6 +32,37 @@ main{
     grid-row: 2 / 3;
   }
 
+  @media screen and (min-width: 320px) and (max-width: 768px){
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-row-gap: .5rem;
+
+    #poke-select{
+      grid-column: 1 / 1;
+      grid-row: 1 /2;
+    }
+    #poke-image{
+      grid-column: 1 / 1;
+      grid-row: 2 / 3;
+    }
+    #poke-type{
+      grid-column: 1 / 1;
+      grid-row: 3 / 4;
+    }
+    #poke-none{
+      grid-column: 1 / 1;
+      grid-row: 4 / 5;
+    }
+    #poke-description{
+      grid-column: 1 / 1;
+      grid-row: 5 / 6;
+    }
+    #poke-graph{
+      grid-column: 1 / 1;
+      grid-row: 7 / 8;
+    }
+  }
+
 }
 
 .green{

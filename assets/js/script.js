@@ -35,7 +35,7 @@ $(document).ready(function(){
         /* ====== Carga de Imágenes de Pokemon ====== */
         var poke_sprite_front = data.sprites.front_default;
         var poke_sprite_back = data.sprites.back_default;
-        $('#poke-name').html(poke_img_name)
+        $('#poke-name').html('<h5>' + poke_img_name + '</h5>')
         $('#poke-front').html('<img src="' + poke_sprite_front + '">' + '<p>Vista Frontal</p>')
         $('#poke-back').html('<img src="' + poke_sprite_back + '">' + '<p>Vista Trasera</p>')
         /* ====== Carga de Imágenes de Pokemon ====== */

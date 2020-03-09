@@ -1,0 +1,78 @@
+main{
+  grid-column: 1;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-row-gap: .5rem;
+  grid-column-gap: 2rem;
+
+  #poke-select{
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+  #poke-image{
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  }
+  #poke-type{
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+  }
+  #poke-none{
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+  #poke-description{
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+  #poke-graph{
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+  }
+
+}
+
+.green{
+  color: green;
+}
+.red{
+  color: red;
+}
+.blue{
+  color: dodgerblue;
+}
+.green-bug{
+  color: darkgreen;
+}
+.purple{
+  color: purple;
+}
+.blue-fly{
+  color: skyblue;
+}
+.normal{
+  color: sandybrown;
+}
+.yellow{
+  color: goldenrod;
+}
+.brown{
+  color: peru;
+}
+.roca{
+  color: SADDLEBROWN;
+}
+.fucsia{
+  color: fuchsia;
+}
+.hada{
+  color: MEDIUMSLATEBLUE;
+}
+.dragon{
+  color: DARKSLATEGRAY;
+}
+.steel{
+  color: steelblue;
+}

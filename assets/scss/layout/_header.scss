@@ -1,0 +1,10 @@
+header{
+  grid-column: 1;
+
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  h1{
+    font-weight: bold;
+  }
+}

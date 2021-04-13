@@ -1,13 +1,13 @@
-$(document).ready(function(){
+$(document).ready(() => {
 
   /* ========== Carga de Pokemon en Select ========== */
   $.ajax({
-    url: "https://pokeapi.co/api/v2/pokemon/?limit=151&offset=0",
+    url: "https://pokeapi.co/api/v2/pokemon/?limit=1118&offset=0",
     type: 'GET',
     dataType: 'JSON',
-    success: function(data) {
-      var poke_name = data.results;
-      var poke_nombre = [];
+    success: data => {
+      let poke_name = data.results;
+      let poke_nombre = [];
 
       for(let i = 0; i < poke_name.length; i++){
         poke_nombre[i] = poke_name[i].name.toUpperCase()
@@ -20,21 +20,20 @@ $(document).ready(function(){
 
 
 
-  $('select#select_poke').on('click', function(v){
-    if (v.target.value != '0'){
-      var poke_number = v.target.value
-    }
+  $('#select_poke').on('change', v => {
+    if(!v.target.value) return;
+    const poke_number = v.target.value;
 
     $.ajax({
-      url: "https://pokeapi.co/api/v2/pokemon/" + poke_number,
+      url: `https://pokeapi.co/api/v2/pokemon/${poke_number}`,
       type: 'GET',
       dataType: 'JSON',
-      success: function(data) {
-        var poke_img_name = data.name.toUpperCase();
+      success: data => {
+        let poke_img_name = data.name.toUpperCase();
         
         /* ====== Carga de Imágenes de Pokemon ====== */
-        var poke_sprite_front = data.sprites.front_default;
-        var poke_sprite_back = data.sprites.back_default;
+        let poke_sprite_front = data.sprites.front_default;
+        let poke_sprite_back = data.sprites.back_default;
         $('#poke-name').html('<h5>' + poke_img_name + '</h5>')
         $('#poke-front').html('<img src="' + poke_sprite_front + '">' + '<p>Vista Frontal</p>')
         $('#poke-back').html('<img src="' + poke_sprite_back + '">' + '<p>Vista Trasera</p>')
@@ -42,10 +41,10 @@ $(document).ready(function(){
         
 
         /* ======= Carga de Datos de Pokemon ======= */
-        var poke_id = data.id;
+        let poke_id = data.id;
         $('#poke-id').html(poke_id);
 
-        var poke_type = data.types[0].type.name;
+        let poke_type = data.types[0].type.name;
         if (poke_type == 'fire'){
           poke_type = 'Fuego';
           $('span#poke-type').removeClass().addClass('red');
@@ -96,12 +95,12 @@ $(document).ready(function(){
         /* ======= Carga de Datos de Pokemon ======= */
       
         
-        var poke_stats_hp = data.stats[5].base_stat;
-        var poke_stats_attack = data.stats[4].base_stat;
-        var poke_stats_def = data.stats[3].base_stat;
-        var poke_stats_spat = data.stats[2].base_stat;
-        var poke_stats_spdef = data.stats[1].base_stat;
-        var poke_stats_speed = data.stats[0].base_stat;
+        let poke_stats_hp = data.stats[5].base_stat;
+        let poke_stats_attack = data.stats[4].base_stat;
+        let poke_stats_def = data.stats[3].base_stat;
+        let poke_stats_spat = data.stats[2].base_stat;
+        let poke_stats_spdef = data.stats[1].base_stat;
+        let poke_stats_speed = data.stats[0].base_stat;
         
         $('#poke-stats-hp').html(poke_stats_hp);
         $('#poke-stats-attack').html(poke_stats_attack);
@@ -110,7 +109,7 @@ $(document).ready(function(){
         $('#poke-stats-spdef').html(poke_stats_spdef);
         $('#poke-stats-speed').html(poke_stats_speed);
 
-        var poke_stats_value = [
+        let poke_stats_value = [
           poke_stats_hp,
           poke_stats_attack,
           poke_stats_def,
@@ -118,7 +117,7 @@ $(document).ready(function(){
           poke_stats_spdef,
           poke_stats_speed
         ];
-        var poke_stats_name = [
+        let poke_stats_name = [
           'Salud',
           'Ataque',
           'Defensa',
@@ -127,12 +126,12 @@ $(document).ready(function(){
           'Velocidad'
         ];
 
-        var poke_name = data.name.toUpperCase();
+        let poke_name = data.name.toUpperCase();
 
         /* Chart JS */
-        var ctx = document.querySelector('#poke-graph');
+        let ctx = document.querySelector('#poke-graph');
 
-        var pokeGraph = new Chart(ctx, {
+        let pokeGraph = new Chart(ctx, {
           type: 'radar',
           data: {
             labels: poke_stats_name,
@@ -157,10 +156,10 @@ $(document).ready(function(){
       }
     });
     $.ajax({
-      url: "https://pokeapi.co/api/v2/pokemon-species/" + poke_number,
+      url: `https://pokeapi.co/api/v2/pokemon-species/${poke_number}`,
       type: 'GET',
       dataType: 'JSON',
-      success: function(data) {
+      success: data => {
         var poke_habitat = data.habitat.name;
 
         if ( poke_habitat == 'grassland' ) {
@@ -195,9 +194,6 @@ $(document).ready(function(){
       }
     });
 
-
   });
-
-
 
 });

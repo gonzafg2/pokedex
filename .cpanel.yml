@@ -1,6 +1,6 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/gfleming/public_html/
+    - export DEPLOYPATH=/home/gfleming/public_html/pokedex1
     - /bin/cp index.html $DEPLOYPATH
     - /bin/cp -R assets $DEPLOYPATH

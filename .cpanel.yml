@@ -3,4 +3,4 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/gfleming/public_html/
     - /bin/cp index.html $DEPLOYPATH
-    - /bin/cp assets $DEPLOYPATH
+    - /bin/cp -R assets $DEPLOYPATH
